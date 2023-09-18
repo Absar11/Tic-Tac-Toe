@@ -11,8 +11,10 @@
     background-image: url(./assets/bg-2.jpg);
     background-size: cover;
     background-position: center;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .game-info{
@@ -21,9 +23,69 @@
     top: 3rem;
     left: 50%;
     transform: translateX(-50%);
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.5);
     padding: 0.5rem 3rem;
     text-align: center;
     border-radius: 5px;
+}
+
+.tic-tac-toe{
+    width: 90%;
+    max-width: 20rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    aspect-ratio: 1/1;
+
+}
+
+.box {
+    cursor: pointer;
+    display: flex;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 3rem;
+    color: white;
+}
+
+.box1, .box2, .box4, .box5{
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.box3, .box6{
+    border-bottom: 2px solid white;
+}
+
+.box7, .box8{
+    border-right: 2px solid white;
+}
+
+.btn{
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 0.5rem 2rem;
+    display: none;
+}
+
+.btn.active{
+    display: flex;
+}
+
+.win{
+    background-color: green;
 }
