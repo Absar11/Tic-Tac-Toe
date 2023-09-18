@@ -60,7 +60,6 @@ function handleClick(index){
 }
 
 function checkGameOver() {
-    console.log("inside game over function")
     let ans = "";
     winningPositions.forEach((position) => {
         // all 3 boxes shold be non-empty and exactly same in value
@@ -75,7 +74,7 @@ function checkGameOver() {
                 else{
                     ans = "O";
                 }
-                console.log("winner is->", ans);
+        
 
                 //disable pointer event
                 boxes.forEach((box) => {
