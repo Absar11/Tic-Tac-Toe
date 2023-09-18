@@ -1,6 +1,11 @@
 const boxes = document.querySelectorAll(".box");
 const gameInfo = document.querySelector(".game-info");
 const newGameBtn = document.querySelector(".btn");
+const playerInput = document.querySelector(".form-container");
+const startNewGame = document.querySelector(".start-btn");
+const player1 = document.querySelector(".player-1");
+const player2 = document.querySelector(".player-2");
+const gameWindow = document.querySelector(".game-container");
 
 let currPlayer;
 let gameGrid;
@@ -8,6 +13,25 @@ let gameGrid;
 let clickSound = document.querySelector("#clickSound");
 let drawSound = document.querySelector("#drawSound");
 let winSound = document.querySelector("#winSound");
+
+playerInput.classList.add("active");
+
+playerInput.addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    if(player1.value === "" || player2.value === ""){
+        alertFunction();
+        return;
+    }
+
+    playerInput.classList.remove("active");
+    gameWindow.classList.add("active");
+});
+
+function alertFunction() {
+    confirm("Please Enter Both Player Name");
+}
 
 const winningPositions = [
     [0,1,2],
@@ -26,6 +50,7 @@ initGame();
 function initGame() {
     console.log("inside the init game function")
     currPlayer = "X";
+    
     gameGrid = ["", "", "", "", "", "", "", "", ""];
     //Empty on UI
     boxes.forEach((box,index) => {
