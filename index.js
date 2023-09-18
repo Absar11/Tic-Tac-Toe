@@ -5,6 +5,10 @@ const newGameBtn = document.querySelector(".btn");
 let currPlayer;
 let gameGrid;
 
+let clickSound = document.querySelector("#clickSound");
+let drawSound = document.querySelector("#drawSound");
+let winSound = document.querySelector("#winSound");
+
 const winningPositions = [
     [0,1,2],
     [3,4,5],
@@ -43,10 +47,10 @@ boxes.forEach((box, index) => {
 });
 
 function handleClick(index){
-    console.log("inside handele Click function");
     if(gameGrid[index] === ""){
         boxes[index].innerText = currPlayer;
         gameGrid[index] = currPlayer;
+        clickSound.play();
         boxes[index].style.pointerEvents = "none";
         //swap turn
         swapTurn();
@@ -66,6 +70,7 @@ function checkGameOver() {
                 //check if winner is X
                 if(gameGrid[position[0]] === "X"){
                     ans = "X";
+                    
                 }
                 else{
                     ans = "O";
@@ -80,6 +85,8 @@ function checkGameOver() {
                 boxes[position[0]].classList.add("win");
                 boxes[position[1]].classList.add("win");
                 boxes[position[2]].classList.add("win");
+                winSound.play();
+                
 
         }
     });
@@ -100,6 +107,7 @@ function checkGameOver() {
 
     if(emptyBox === 9){
         gameInfo.innerText = "Match Tied !";
+        drawSound.play();
         newGameBtn.classList.add("active");
     }
     console.log("last in game over")
