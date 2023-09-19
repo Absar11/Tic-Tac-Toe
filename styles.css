@@ -124,7 +124,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    font-size: 3.5vw;
+    font-size: 3rem;
     color: white;
     font-weight: bold;
 }
@@ -180,7 +180,7 @@
 }
 .winner-container p{
     color: yellow;
-    font-size: 3.5vw;
+    font-size: 3rem;
 }
 
 .winner-container.active{

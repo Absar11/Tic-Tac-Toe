@@ -18,6 +18,7 @@ let currPlayerName;
 let clickSound = document.querySelector("#clickSound");
 let drawSound = document.querySelector("#drawSound");
 let winSound = document.querySelector("#winSound");
+let clapping = document.querySelector("#clapping");
 
 playerInput.classList.add("active");
 
@@ -119,6 +120,7 @@ function checkGameOver() {
                 boxes[position[1]].classList.add("win");
                 boxes[position[2]].classList.add("win");
                 winSound.play();
+                clapping.play();
         }
     });
 
