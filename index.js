@@ -9,6 +9,7 @@ const gameWindow = document.querySelector(".game-container");
 
 let currPlayer;
 let gameGrid;
+let currPlayerName;
 
 let clickSound = document.querySelector("#clickSound");
 let drawSound = document.querySelector("#drawSound");
@@ -27,6 +28,8 @@ playerInput.addEventListener("submit", (e) => {
 
     playerInput.classList.remove("active");
     gameWindow.classList.add("active");
+    //now call for game start
+    initGame();
 });
 
 function alertFunction() {
@@ -46,10 +49,11 @@ const winningPositions = [
 
 //lets create a function to initialize the game
 
-initGame();
 function initGame() {
     console.log("inside the init game function")
     currPlayer = "X";
+    currPlayerName = player1.value;
+    console.log(currPlayerName);
     
     gameGrid = ["", "", "", "", "", "", "", "", ""];
     //Empty on UI
@@ -60,7 +64,7 @@ function initGame() {
         box.classList = `box box${index+1}`;
     });
     newGameBtn.classList.remove("active");
-    gameInfo.innerText = `Current Player - ${currPlayer}`;
+    gameInfo.innerText = `Current Player - ${currPlayerName}`;
 
 }
 
@@ -93,11 +97,11 @@ function checkGameOver() {
             
                 //check if winner is X
                 if(gameGrid[position[0]] === "X"){
-                    ans = "X";
+                    ans = player1.value;
                     
                 }
                 else{
-                    ans = "O";
+                    ans = player2.value;
                 }
         
 
@@ -140,11 +144,13 @@ function checkGameOver() {
 function swapTurn() {
     if(currPlayer === "X"){
         currPlayer = "O";
+        currPlayerName = player2.value;
     }
     else{
         currPlayer = "X";
+        currPlayerName = player1.value;
     }
-    gameInfo.innerText = `Current Player - ${currPlayer}`;
+    gameInfo.innerText = `Current Player - ${currPlayerName}`;
 }
 
 newGameBtn.addEventListener("click", initGame);
