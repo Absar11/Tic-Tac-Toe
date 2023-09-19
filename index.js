@@ -10,6 +10,7 @@ const winnerBox = document.querySelector(".winner-container");
 const winnerName = document.querySelector(".winnerName");
 const winnerHarcore = document.querySelector(".winner-harcore");
 
+
 let currPlayer;
 let gameGrid;
 let currPlayerName;
@@ -55,13 +56,13 @@ const winningPositions = [
 function initGame() {
     winnerBox.classList.remove("active");
     gameWindow.classList.add("active");
-    console.log("inside the init game function")
+    // console.log("inside the init game function")
     currPlayer = "X";
-    currPlayerName = player1.value;
-    console.log(currPlayerName);
+    currPlayerName = player1.value.split(" ")[0];
+    // console.log(`name is  ${currPlayerName} and type of name is ${typeof(currPlayerName)}`);
     
     gameGrid = ["", "", "", "", "", "", "", "", ""];
-    //Empty on UI
+    //Empty all boxes on UI
     boxes.forEach((box,index) => {
         box.innerText = "";
         boxes[index].style.pointerEvents = "all";
@@ -102,11 +103,10 @@ function checkGameOver() {
             
                 //check if winner is X
                 if(gameGrid[position[0]] === "X"){
-                    ans = player1.value;
-                    
+                    ans = player1.value.split(" ")[0];
                 }
                 else{
-                    ans = player2.value;
+                    ans = player2.value.split(" ")[0];
                 }
         
 
@@ -146,20 +146,20 @@ function checkGameOver() {
         gameWindow.classList.remove("active");
         winnerBox.classList.add("active");
         winnerHarcore.innerText = "";
-        winnerName.innerText = "Match Tied !";
+        winnerName.innerText = "Match Tied";
         newGameBtn.classList.add("active");
     }
-    console.log("last in game over")
+    // console.log("last in game over")
 }
 
 function swapTurn() {
     if(currPlayer === "X"){
         currPlayer = "O";
-        currPlayerName = player2.value;
+        currPlayerName = player2.value.split(" ")[0];
     }
     else{
         currPlayer = "X";
-        currPlayerName = player1.value;
+        currPlayerName = player1.value.split(" ")[0];
     }
     gameInfo.innerText = `Current Player - ${currPlayerName}`;
 }

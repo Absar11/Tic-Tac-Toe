@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Popins' sans-serif;
+    font-family: "Kalam", sans-serif;
 }
 
 .wrapper{
@@ -47,6 +47,11 @@
     border-radius: 10px;
     margin: 1rem 0;
     color: rgb(81, 3, 3);
+}
+
+.form-container label{
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .form-container input::placeholder{
@@ -119,8 +124,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    font-size: 3rem;
+    font-size: 3.5vw;
     color: white;
+    font-weight: bold;
 }
 
 .box1, .box2, .box4, .box5{
@@ -174,7 +180,7 @@
 }
 .winner-container p{
     color: yellow;
-    font-size: 40px;
+    font-size: 3.5vw;
 }
 
 .winner-container.active{
