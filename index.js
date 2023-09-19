@@ -6,6 +6,9 @@ const startNewGame = document.querySelector(".start-btn");
 const player1 = document.querySelector(".player-1");
 const player2 = document.querySelector(".player-2");
 const gameWindow = document.querySelector(".game-container");
+const winnerBox = document.querySelector(".winner-container");
+const winnerName = document.querySelector(".winnerName");
+const winnerHarcore = document.querySelector(".winner-harcore");
 
 let currPlayer;
 let gameGrid;
@@ -50,6 +53,8 @@ const winningPositions = [
 //lets create a function to initialize the game
 
 function initGame() {
+    winnerBox.classList.remove("active");
+    gameWindow.classList.add("active");
     console.log("inside the init game function")
     currPlayer = "X";
     currPlayerName = player1.value;
@@ -114,13 +119,16 @@ function checkGameOver() {
                 boxes[position[1]].classList.add("win");
                 boxes[position[2]].classList.add("win");
                 winSound.play();
-                
-
         }
     });
 
     if(ans !== ""){
         gameInfo.innerText = `Winner Player - ${ans}`;
+        gameWindow.classList.remove("active");
+        winnerBox.classList.add("active");
+        winnerHarcore.innerText = "Winner is"
+        winnerName.innerText = ans;
+        
         newGameBtn.classList.add("active");
         return;
     }
@@ -134,8 +142,11 @@ function checkGameOver() {
     });
 
     if(emptyBox === 9){
-        gameInfo.innerText = "Match Tied !";
         drawSound.play();
+        gameWindow.classList.remove("active");
+        winnerBox.classList.add("active");
+        winnerHarcore.innerText = "";
+        winnerName.innerText = "Match Tied !";
         newGameBtn.classList.add("active");
     }
     console.log("last in game over")

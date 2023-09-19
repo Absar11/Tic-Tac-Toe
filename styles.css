@@ -157,3 +157,26 @@
 .win{
     background-color: green;
 }
+
+.winner-container{
+    width: 90%;
+    background-image: url(./assets/winr2.png);
+    max-width: 20rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-position: center;
+    color: white;
+    aspect-ratio: 1/1;
+    display: none;
+}
+.winner-container p{
+    color: yellow;
+    font-size: 40px;
+}
+
+.winner-container.active{
+    display: flex;
+}
